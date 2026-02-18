@@ -1,17 +1,13 @@
 
 import React from 'react';
+import htm from 'htm';
 
-interface HeaderProps {
-  searchQuery: string;
-  onSearch: (query: string) => void;
-  selectedCategory: string;
-  onSelectCategory: (category: string) => void;
-}
+const html = htm.bind(React.createElement);
 
 const CATEGORIES = ['All', 'Action', 'Arcade', 'Puzzle', 'Sports', 'Retro', 'Favorites'];
 
-const Header: React.FC<HeaderProps> = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) => {
-  return (
+const Header = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) => {
+  return html`
     <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
       <div className="flex items-center justify-between gap-4">
         <div className="flex md:hidden items-center space-x-2">
@@ -26,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, onSearch, selectedCategory
           <input
             type="text"
             placeholder="Search for games..."
-            value={searchQuery}
-            onChange={(e) => onSearch(e.target.value)}
+            value=${searchQuery}
+            onChange=${(e) => onSearch(e.target.value)}
             className="w-full bg-slate-900/50 border border-slate-800 focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 rounded-full py-2.5 pl-12 pr-6 text-slate-100 outline-none transition-all placeholder:text-slate-600"
           />
         </div>
@@ -42,22 +38,22 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, onSearch, selectedCategory
       </div>
 
       <div className="flex md:hidden overflow-x-auto gap-2 pb-1 no-scrollbar">
-        {CATEGORIES.map(cat => (
+        ${CATEGORIES.map(cat => html`
           <button
-            key={cat}
-            onClick={() => onSelectCategory(cat)}
-            className={`whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+            key=${cat}
+            onClick=${() => onSelectCategory(cat)}
+            className=${`whitespace-nowrap px-4 py-1.5 rounded-full text-sm font-medium transition-all \${
               selectedCategory === cat 
                 ? 'bg-indigo-600 text-white' 
                 : 'bg-slate-900 text-slate-400 border border-slate-800'
-            }`}
+            }\`}
           >
-            {cat}
+            ${cat}
           </button>
-        ))}
+        `)}
       </div>
     </header>
-  );
+  `;
 };
 
 export default Header;

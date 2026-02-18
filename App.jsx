@@ -1,5 +1,2 @@
 
-/**
- * Redundant component file.
- * Using App.tsx instead.
- */
+export { default } from './App.tsx';
