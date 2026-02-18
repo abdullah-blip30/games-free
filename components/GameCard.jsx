@@ -1,1 +1,0 @@
-// Redundant file. Using .tsx.

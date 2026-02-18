@@ -1,9 +1,16 @@
 
 import React from 'react';
 
+interface HeaderProps {
+  searchQuery: string;
+  onSearch: (query: string) => void;
+  selectedCategory: string;
+  onSelectCategory: (category: string) => void;
+}
+
 const CATEGORIES = ['All', 'Action', 'Arcade', 'Puzzle', 'Sports', 'Retro', 'Favorites'];
 
-const Header = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) => {
+const Header: React.FC<HeaderProps> = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) => {
   return (
     <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-6 py-4 flex flex-col gap-4">
       <div className="flex items-center justify-between gap-4">
@@ -18,14 +25,14 @@ const Header = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) =
           <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
           <input
             type="text"
-            placeholder="Search games..."
+            placeholder="Search for games..."
             value={searchQuery}
             onChange={(e) => onSearch(e.target.value)}
-            className="w-full bg-slate-900/50 border border-slate-800 focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 rounded-full py-2.5 pl-12 pr-6 text-slate-200 outline-none transition-all"
+            className="w-full bg-slate-900/50 border border-slate-800 focus:border-indigo-500/50 focus:ring-4 focus:ring-indigo-500/10 rounded-full py-2.5 pl-12 pr-6 text-slate-100 outline-none transition-all placeholder:text-slate-600"
           />
         </div>
 
-        <div className="w-10 h-10 rounded-full bg-indigo-600 p-[2px]">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 p-[2px]">
           <img 
             src="https://picsum.photos/id/64/100/100" 
             alt="Profile" 
@@ -34,7 +41,7 @@ const Header = ({ searchQuery, onSearch, selectedCategory, onSelectCategory }) =
         </div>
       </div>
 
-      <div className="flex md:hidden overflow-x-auto gap-2 pb-1">
+      <div className="flex md:hidden overflow-x-auto gap-2 pb-1 no-scrollbar">
         {CATEGORIES.map(cat => (
           <button
             key={cat}

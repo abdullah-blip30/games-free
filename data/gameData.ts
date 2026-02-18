@@ -35,7 +35,7 @@ export const GAMES_DATA: Game[] = [
     thumbnail: 'https://images.unsplash.com/photo-1614850715649-1d0106293bd1?w=400&h=300&fit=crop',
     iframeUrl: 'https://paper-io.com/',
     category: 'Arcade',
-    description: 'Capture as much territory as possible. Draw shapes with your tail to claim land, but don\'t let others hit your trail.',
+    description: 'Capture as much territory as possible. Draw shapes with your tail to claim land.',
     rating: 4.3
   },
   {
@@ -44,7 +44,7 @@ export const GAMES_DATA: Game[] = [
     thumbnail: 'https://images.unsplash.com/photo-1585670210693-e7fdd16b142e?w=400&h=300&fit=crop',
     iframeUrl: 'https://tetris.com/play-tetris',
     category: 'Retro',
-    description: 'The world-famous block-stacking puzzle game. Clear lines to score points and keep the board clean.',
+    description: 'The world-famous block-stacking puzzle game. Clear lines to score points.',
     rating: 4.7
   },
   {
@@ -53,7 +53,7 @@ export const GAMES_DATA: Game[] = [
     thumbnail: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop',
     iframeUrl: 'https://basketballstars.online/',
     category: 'Sports',
-    description: 'Compete in head-to-head basketball matches. Show off your shooting skills and dunks.',
+    description: 'Compete in head-to-head basketball matches. Show off your shooting skills.',
     rating: 4.6
   },
   {
@@ -62,7 +62,16 @@ export const GAMES_DATA: Game[] = [
     thumbnail: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=400&h=300&fit=crop',
     iframeUrl: 'https://motox3m.me/',
     category: 'Action',
-    description: 'High-octane bike racing through dangerous levels. Perform flips and stunts to save time.',
+    description: 'High-octane bike racing through dangerous levels.',
     rating: 4.8
+  },
+  {
+    id: 'doodle-jump',
+    title: 'Doodle Jump',
+    thumbnail: 'https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=300&fit=crop',
+    iframeUrl: 'https://doodlejump.io/',
+    category: 'Arcade',
+    description: 'Jump as high as you can, avoiding monsters and using power-ups.',
+    rating: 4.4
   }
 ];
